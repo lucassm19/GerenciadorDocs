@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/upload',);
+Route::get('/documentos', [DocumentoController::class, 'upload'])->upload('upload');
