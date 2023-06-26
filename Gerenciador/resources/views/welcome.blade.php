@@ -1,7 +1,7 @@
 @extends('base')
 
-@section('title', 'Estoque')
-
+@section('title', 'Inicio')
+    
 @section('content')
-
+Bem vindo!
 @endsection
