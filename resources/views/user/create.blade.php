@@ -18,7 +18,7 @@
 
         <br>
             
-        <input type="submit" value="Gravar" class="mb-2 bg-green-400 p-2 rounded-lg cursor-pointer">
+        <input type="submit" value="Gravar" class="mb-2 bg-blue-400 p-2 rounded-lg cursor-pointer">
     </form>
 
 @endsection

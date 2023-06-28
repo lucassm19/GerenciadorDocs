@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompartilharController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
@@ -40,17 +41,18 @@ Route::group(['prefix' => '/user'], function () {
 });
 
 //usar o php artisan make:middleware 'NomeDoMiddleware' para criar rotas pos login
-Route::get('/upload', [UploadController::class, 'index'])->name('upload');
+Route::group(['prefix' => '/upload'], function () {
+    
+    Route::get('', [UploadController::class, 'index'])->name('upload')->middleware('auth');
 
-Route::post('/upload/save', [UploadController::class, 'save'])->name('upload.save');
+    Route::post('/save', [UploadController::class, 'save'])->name('upload.save');
 
+    Route::post('/saverichtext', [UploadController::class, 'saverichtext'])->name('upload.saverichtext');
 
-// Route::get('/teste', function() {
-//     return 'O teste funcionou';
-// });
-// Route::get('/teste-com-view', function() {
-//     return view('teste');
-// });
-// Route::get('/noticia/{id?}', function($id = 'NADA') {
-//     return "Você está lendo a notícia {$id}";
-// });
+});
+
+Route::group(['prefix' => '/compartilhar'], function () {
+    
+    Route::get('', [CompartilharController::class, 'index'])->name('compartilhar')->middleware('auth');
+
+});

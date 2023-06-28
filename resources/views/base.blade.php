@@ -10,6 +10,8 @@
         rel="stylesheet" />
     <!-- Favicon -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.tiny.cloud/1/6q69vtfad5j0afz5qkh3snobzukyxbthjksq4u603wqffanf/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -21,95 +23,51 @@
                 <div class="text-white">
                     <div class="flex p-2  bg-gray-800">
                         <div class="flex py-3 px-2 items-center">
-                            <p class="text-2xl text-green-500 font-semibold">SA</p <p class="ml-2 font-semibold italic">
-                            DASHBOARD</p>
+                            <p class="text-2xl text-blue-500 font-semibold">Gestor</p <p class="ml-2 font-semibold italic">
+                            Documentos</p>
                         </div>
                     </div>
                     <div class="flex justify-center">
                         <div class="">
-                            <img class="hidden h-24 w-24 rounded-full sm:block object-cover mr-2 border-4 border-green-400"
-                                src="https://image.flaticon.com/icons/png/512/149/149071.png" alt="">
-                            <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24">{{ Auth::user()->name ?? 'Não autenticado' }}</p>
+                            <p class="font-bold text-base  text-gray-400 pt-2 text-center w-24">{{ Auth::user()->name ??
+                                'Não autenticado' }}</p>
                         </div>
                     </div>
                     <div>
                         <ul class="mt-6 leading-10">
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
                                     href="/">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
-                                    <span class="ml-4 uppercase">Inicial</span>
+                                    <span class="ml-4 uppercase">Inicio</span>
                                 </a>
                             </li>
+                            
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
-                                    href="{{ route('estoque') }}">
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
+                                    href="{{ route('upload') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
-                                    <span class="ml-4 uppercase">Estoque</span>
+                                    <span class="ml-4 uppercase">Upload</span>
                                 </a>
                             </li>
-                            <li class="relative px-2 py-1" x-data="{ Open : false  }">
-                                <div class="inline-flex items-center justify-between w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
-                                    x-on:click="Open = !Open">
-                                    <span
-                                        class="inline-flex items-center  text-sm font-semibold text-white hover:text-green-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
-                                        </svg>
-                                        <span class="ml-4">ITEM</span>
-                                    </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" x-show="!Open"
-                                        class="ml-1  text-white w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor" style="display: none;">
+                            <li class="relative px-2 py-1 ">
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
+                                    href="{{ route('compartilhar') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 19l-7-7 7-7" />
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" x-show="Open"
-                                        class="ml-1  text-white w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor" style="display: none;">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-
-                                <div x-show.transition="Open" style="display:none;">
-                                    <ul x-transition:enter="transition-all ease-in-out duration-300"
-                                        x-transition:enter-start="opacity-25 max-h-0"
-                                        x-transition:enter-end="opacity-100 max-h-xl"
-                                        x-transition:leave="transition-all ease-in-out duration-300"
-                                        x-transition:leave-start="opacity-100 max-h-xl"
-                                        x-transition:leave-end="opacity-0 max-h-0"
-                                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner  bg-green-400"
-                                        aria-label="submenu">
-
-                                        <li class="px-2 py-1 text-white transition-colors duration-150">
-                                            <div class="px-1 hover:text-gray-800 hover:bg-gray-100 rounded-md">
-                                                <div class="flex items-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                                    </svg>
-                                                    <a href="#"
-                                                        class="w-full ml-2  text-sm font-semibold text-white hover:text-gray-800">Item
-                                                        1</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <span class="ml-4 uppercase">Compartilhamento</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -136,28 +94,28 @@
                 <div class="text-white">
                     <div class="flex p-2  bg-gray-800">
                         <div class="flex py-3 px-2 items-center">
-                            <p class="text-2xl text-green-500 font-semibold">SA</p <p class="ml-2 font-semibold italic">
-                            DASHBOARD</p>
+                            <p class="text-2xl text-blue-500 font-semibold">Gestor</p <p class="ml-2 font-semibold italic">
+                            Documentos</p>
                         </div>
                     </div>
                     <div>
                         <ul class="mt-6 leading-10">
                             <li class="relative px-2 py-1 ">
-                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
                                     href=" #">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
-                                    <span class="ml-4">DASHBOARD</span>
+                                    <span class="ml-4">Documentos</span>
                                 </a>
                             </li>
                             <li class="relative px-2 py-1" x-data="{ Open : false  }">
                                 <div class="inline-flex items-center justify-between w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
                                     x-on:click="Open = !Open">
                                     <span
-                                        class="inline-flex items-center  text-sm font-semibold text-white hover:text-green-400">
+                                        class="inline-flex items-center  text-sm font-semibold text-white hover:text-blue-400">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -187,7 +145,7 @@
                                         x-transition:leave="transition-all ease-in-out duration-300"
                                         x-transition:leave-start="opacity-100 max-h-xl"
                                         x-transition:leave-end="opacity-0 max-h-0"
-                                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner  bg-green-400"
+                                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner  bg-blue-400"
                                         aria-label="submenu">
 
                                         <li class="px-2 py-1 text-white transition-colors duration-150">
@@ -231,28 +189,28 @@
                     <!-- Search Input -->
                     <form action="{{ route('estoque.busca')}}" method="post">
                         @csrf
-                    <div class="flex justify-center  mt-2 mr-4">
-                        <div class="relative flex w-full flex-wrap items-stretch mb-3">
-                            <input name="busca" type="search" placeholder="Busca"
-                                class="form-input px-3 py-2 placeholder-gray-400 text-gray-700 relative bg-white rounded-lg text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10" />
-                            <span
-                                class="z-10 h-full leading-snug font-normal  text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 -mt-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </span>
+                        <div class="flex justify-center  mt-2 mr-4">
+                            <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                                <input name="busca" type="search" placeholder="Busca"
+                                    class="form-input px-3 py-2 placeholder-gray-400 text-gray-700 relative bg-white rounded-lg text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10" />
+                                <span
+                                    class="z-10 h-full leading-snug font-normal  text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 -mt-1" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
 
                     <ul class="flex items-center flex-shrink-0 space-x-6">
 
                         <!-- Notifications menu -->
                         <li class="relative">
                             <button
-                                class="p-2 bg-white text-green-400 align-middle rounded-full hover:text-white hover:bg-green-400 focus:outline-none "
+                                class="p-2 bg-white text-blue-400 align-middle rounded-full hover:text-white hover:bg-blue-400 focus:outline-none "
                                 @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu"
                                 aria-label="Notifications" aria-haspopup="true">
                                 <div class="flex items-cemter">
@@ -270,7 +228,7 @@
                                 <ul x-transition:leave="transition ease-in duration-150"
                                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                                     @click.away="closeNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-green-400 border border-green-500 rounded-md shadow-md">
+                                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-blue-400 border border-blue-500 rounded-md shadow-md">
                                     <li class="flex">
                                         <a class="text-white inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
                                             href="#">
@@ -288,7 +246,7 @@
                         <!-- Profile menu -->
                         <li class="relative">
                             <button
-                                class="p-2 bg-white text-green-400 align-middle rounded-full hover:text-white hover:bg-green-400 focus:outline-none "
+                                class="p-2 bg-white text-blue-400 align-middle rounded-full hover:text-white hover:bg-blue-400 focus:outline-none "
                                 @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
                                 aria-haspopup="true">
                                 <div class="flex items-center">
@@ -305,7 +263,7 @@
                                 <ul x-transition:leave="transition ease-in duration-150"
                                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                                     @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
-                                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-green-400 border border-green-500 rounded-md shadow-md"
+                                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-blue-400 border border-blue-500 rounded-md shadow-md"
                                     aria-label="submenu">
                                     <li class="flex">
                                         <a class=" text-white inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
@@ -337,7 +295,7 @@
                 </div>
             </header>
             <main class="">
-                <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">
+                <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-blue-400">
 
                     <div class="grid grid-cols-12 gap-6">
                         <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
@@ -350,8 +308,9 @@
 
                             <div class="col-span-12 mt-5">
                                 @if (session('sucesso'))
-                                <div class="flex my-5 rounded-md bg-green-50 p-4 text-sm text-green-500" x-cloak
-                                    x-show="showAlert" x-data="{ showAlert: true }" x-init="setTimeout(() => showAlert = false, 5000)">
+                                <div class="flex my-5 rounded-md bg-blue-50 p-4 text-sm text-blue-500" x-cloak
+                                    x-show="showAlert" x-data="{ showAlert: true }"
+                                    x-init="setTimeout(() => showAlert = false, 5000)">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                         class="mr-3 h-5 w-5 flex-shrink-0">
                                         <path fill-rule="evenodd"
