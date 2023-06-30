@@ -12,10 +12,5 @@ class CompartilharController extends Controller
     {
         return view('compartilhar.index');
     }
-    public function busca(Request $form) {
-        $busca = $form->busca;
-        $lista = Documento::where('nome', 'LIKE', "%{$busca}%")->get();
-
-        return view('compartilhar.index',['lista' => $lista,]);
-    }
+    
 }
