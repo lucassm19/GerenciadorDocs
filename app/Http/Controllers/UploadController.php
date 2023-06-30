@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UploadRequest;
 use App\Models\Documento;
 use App\Models\DocumentoFixo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class UploadController extends Controller
@@ -13,6 +15,24 @@ class UploadController extends Controller
     {
         return view('upload.index');
     }
+
+    public function tabela()
+    {
+        // Obtém o usuário logado
+        $user = Auth::user();
+
+        // Obtém os documentos fixos do usuário logado
+        $documentosFixos = DocumentoFixo::where('nome_usuario', $user->name)->get();
+
+        // Obtém os documentos do usuário logado
+        $documentos = Documento::where('nome_usuario', $user->name)->get();
+
+        return view('upload.tabela', [
+            'documentosFixos' => $documentosFixos,
+            'documentos' => $documentos
+        ]);
+    }
+
 
     public function save(Request $form)
     {
@@ -48,16 +68,17 @@ class UploadController extends Controller
 
     public function saverichtext(Request $request)
     {
+        $titulo = $request->input('titulo');
         $documento = $request->input('documento');
 
-        if ($documento) {
+        if ($titulo && $documento) {
             // Remove as tags HTML do conteúdo do documento
             $texto = strip_tags($documento);
 
             $caminho = 'documentos/';
-            $nomeArquivo = time() . '_' . 'rich-text.txt';
+            $nomeArquivo = $titulo . '.txt';
 
-            // Armazena o conteúdo do documento (apenas o texto) no arquivo "public/documentos/rich-text.txt"
+            // Armazena o conteúdo do documento (apenas o texto) no arquivo "public/documentos/{titulo}.txt"
             Storage::put($caminho . $nomeArquivo, $texto);
 
             // Salvar informações na tabela de documentos
@@ -70,6 +91,67 @@ class UploadController extends Controller
             return 'Documento rich-text salvo com sucesso!';
         }
 
-        return 'Nenhum documento rich-text enviado.';
+        return 'Título e/ou documento não fornecidos.';
+    }
+
+    public function visualizar($id)
+    {
+        // Obter o documento fixo com base no ID fornecido
+        $documentoFixo = DocumentoFixo::find($id);
+
+        // Verificar se o documento foi encontrado
+        if (!$documentoFixo) {
+            // Redirecionar ou exibir uma mensagem de erro, caso o documento não exista
+            return redirect()->back()->with('error', 'Documento não encontrado.');
+        }
+
+        // Retornar a visualização do documento fixo, passando o objeto $documentoFixo para a view
+        return view('upload.visualizar', ['documentoFixo' => $documentoFixo]);
+    }
+
+    public function atualizar(Request $request, $id)
+    {
+        $documento = DocumentoFixo::findOrFail($id);
+
+        $documento->titulo = $request->input('titulo');
+
+        $documento->save();
+
+        return redirect()->route('upload.index')->with('success', 'Documento atualizado com sucesso.');
+    }
+
+    public function editar(Documento $documento)
+    {
+        return view('upload.editar', ['documento' => $documento]);
+    }
+
+    public function editarGravar(UploadRequest $request, Documento $documento)
+    {
+        $dados = $request->validated();
+        $documento->update($dados);
+        return redirect()->route('upload.index')->with('success', 'Documento editado com sucesso.');
+    }
+
+    public function apagar(Documento $documento)
+    {
+        // Se for um pedido DELETE, exclui o documento do banco de dados
+        if (request()->isMethod('DELETE')) {
+            // Realize a exclusão tanto da tabela 'Documento' quanto da 'DocumentoFixo'
+            $documento->delete();
+            Documento::where('id', $documento->id)->delete();
+            return redirect()->route('upload.tabela')->with('sucesso', 'Documento apagado com sucesso.');
+        }
+
+        return view('upload.apagar', ['documento' => $documento]);
+    }
+
+    public function apagarFixo(DocumentoFixo $documentoFixo)
+    {
+        if (request()->isMethod('DELETE')) {
+            $documentoFixo->delete();
+            return redirect()->route('upload.tabela')->with('sucesso', 'Documento fixo excluído com sucesso.');
+        }
+
+        return view('upload.apagar', ['documentoFixo' => $documentoFixo]);
     }
 }

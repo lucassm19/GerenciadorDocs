@@ -23,7 +23,8 @@
                 <div class="text-white">
                     <div class="flex p-2  bg-gray-800">
                         <div class="flex py-3 px-2 items-center">
-                            <p class="text-2xl text-blue-500 font-semibold">Gestor</p <p class="ml-2 font-semibold italic">
+                            <p class="text-2xl text-blue-500 font-semibold">Gestor</p <p
+                                class="ml-2 font-semibold italic">
                             Documentos</p>
                         </div>
                     </div>
@@ -38,33 +39,50 @@
                             <li class="relative px-2 py-1 ">
                                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
                                     href="/">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-house-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                                        <path
+                                            d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
                                     </svg>
-                                    <span class="ml-4 uppercase">Inicio</span>
+                                    <span class="ml-4 uppercase">Início</span>
                                 </a>
                             </li>
-                            
+
                             <li class="relative px-2 py-1 ">
                                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
                                     href="{{ route('upload') }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-file-earmark-arrow-up-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.354 9.854a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 8.707V12.5a.5.5 0 0 1-1 0V8.707L6.354 9.854z" />
                                     </svg>
                                     <span class="ml-4 uppercase">Upload</span>
                                 </a>
                             </li>
+
+                            <li class="relative px-2 py-1 ">
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
+                                    href="{{ route('upload.tabela') }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-file-earmark-pdf-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M5.523 12.424c.14-.082.293-.162.459-.238a7.878 7.878 0 0 1-.45.606c-.28.337-.498.516-.635.572a.266.266 0 0 1-.035.012.282.282 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548zm2.455-1.647c-.119.025-.237.05-.356.078a21.148 21.148 0 0 0 .5-1.05 12.045 12.045 0 0 0 .51.858c-.217.032-.436.07-.654.114zm2.525.939a3.881 3.881 0 0 1-.435-.41c.228.005.434.022.612.054.317.057.466.147.518.209a.095.095 0 0 1 .026.064.436.436 0 0 1-.06.2.307.307 0 0 1-.094.124.107.107 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256zM8.278 6.97c-.04.244-.108.524-.2.829a4.86 4.86 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.517.517 0 0 1 .145-.04c.013.03.028.092.032.198.005.122-.007.277-.038.465z" />
+                                        <path fill-rule="evenodd"
+                                            d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.651 11.651 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.856.856 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.844.844 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.76 5.76 0 0 0-1.335-.05 10.954 10.954 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.238 1.238 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a19.697 19.697 0 0 1-1.062 2.227 7.662 7.662 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103z" />
+                                    </svg>
+                                    <span class="ml-4 uppercase">Documentos</span>
+                                </a>
+                            </li>
+
                             <li class="relative px-2 py-1 ">
                                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-blue-500"
                                     href="{{ route('compartilhar') }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-share-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
                                     </svg>
                                     <span class="ml-4 uppercase">Compartilhamento</span>
                                 </a>
@@ -94,7 +112,8 @@
                 <div class="text-white">
                     <div class="flex p-2  bg-gray-800">
                         <div class="flex py-3 px-2 items-center">
-                            <p class="text-2xl text-blue-500 font-semibold">Gestor</p <p class="ml-2 font-semibold italic">
+                            <p class="text-2xl text-blue-500 font-semibold">Gestor</p <p
+                                class="ml-2 font-semibold italic">
                             Documentos</p>
                         </div>
                     </div>
@@ -206,42 +225,6 @@
                     </form>
 
                     <ul class="flex items-center flex-shrink-0 space-x-6">
-
-                        <!-- Notifications menu -->
-                        <li class="relative">
-                            <button
-                                class="p-2 bg-white text-blue-400 align-middle rounded-full hover:text-white hover:bg-blue-400 focus:outline-none "
-                                @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                                aria-label="Notifications" aria-haspopup="true">
-                                <div class="flex items-cemter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                                    </svg>
-                                </div>
-                                <!-- Notification badge -->
-                                <span aria-hidden="true"
-                                    class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
-                            </button>
-                            <template x-if="isNotificationsMenuOpen">
-                                <ul x-transition:leave="transition ease-in duration-150"
-                                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                                    @click.away="closeNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-blue-400 border border-blue-500 rounded-md shadow-md">
-                                    <li class="flex">
-                                        <a class="text-white inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
-                                            href="#">
-                                            <span>Messages</span>
-                                            <span
-                                                class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
-                                                13
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </template>
-                        </li>
 
                         <!-- Profile menu -->
                         <li class="relative">

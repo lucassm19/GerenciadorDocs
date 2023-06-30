@@ -22,9 +22,9 @@ class EstoqueController extends Controller
         $busca = $form->busca;
         $lista = Estoque::where('nome', 'LIKE', "%{$busca}%")->get();
 
-        return view('estoque,index',['lista' => $lista,]);
+        return view('estoque.index',['lista' => $lista,]);
     }
-
+    
     public function adicionar()
     {
         return view('estoque.adicionar');

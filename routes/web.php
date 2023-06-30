@@ -42,17 +42,31 @@ Route::group(['prefix' => '/user'], function () {
 
 //usar o php artisan make:middleware 'NomeDoMiddleware' para criar rotas pos login
 Route::group(['prefix' => '/upload'], function () {
-    
+
     Route::get('', [UploadController::class, 'index'])->name('upload')->middleware('auth');
+
+    Route::get('/tabela', [UploadController::class, 'tabela'])->name('upload.tabela')->middleware('auth');
 
     Route::post('/save', [UploadController::class, 'save'])->name('upload.save');
 
     Route::post('/saverichtext', [UploadController::class, 'saverichtext'])->name('upload.saverichtext');
 
+    Route::get('visualizar/{documento}', [UploadController::class, 'visualizar'])->name('upload.visualizar');
+
+    Route::get('/editar/{documento}', [UploadController::class, 'editar'])->name('upload.editar');
+
+    Route::put('/editar/{documento}', [UploadController::class, 'editarGravar'])->name('upload.editarGravar');
+
+    Route::get('/apagar/{documento}', [UploadController::class, 'apagar'])->name('upload.apagar');
+
+    Route::delete('/apagar/{documento}', [UploadController::class, 'apagar']);
+
+    Route::get('/apagar-fixo/{documentoFixo}', [UploadController::class, 'apagarFixo'])->name('upload.apagarFixo');
+
+    Route::delete('/apagar-fixo/{documentoFixo}', [UploadController::class, 'apagarFixo']);
 });
 
 Route::group(['prefix' => '/compartilhar'], function () {
-    
-    Route::get('', [CompartilharController::class, 'index'])->name('compartilhar')->middleware('auth');
 
+    Route::get('', [CompartilharController::class, 'index'])->name('compartilhar')->middleware('auth');
 });
