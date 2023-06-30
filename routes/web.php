@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CompartilharController;
-use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -9,22 +8,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/estoque', [EstoqueController::class, 'index'])->name('estoque')->middleware('auth');
-
-Route::post('/estoque/busca', [EstoqueController::class, 'busca'])->name('estoque.busca');
-
-Route::get('/estoque/adicionar', [EstoqueController::class, 'adicionar'])->name('estoque.adicionar');
-
-Route::post('/estoque/adicionar', [EstoqueController::class, 'adicionarGravar']);
-
-Route::get('/estoque/editar/{estoque}', [EstoqueController::class, 'editar'])->name('estoque.editar');
-
-Route::put('/estoque/adicionar', [EstoqueController::class, 'editarGravar']);
-
-Route::get('/estoque/apagar/{estoque}', [EstoqueController::class, 'apagar'])->name('estoque.apagar');
-
-Route::delete('/estoque/apagar/{estoque}', [EstoqueController::class, 'apagar']);
 
 Route::group(['prefix' => '/user'], function () {
     Route::get('', [UserController::class, 'index'])->name('user');
@@ -51,9 +34,9 @@ Route::group(['prefix' => '/upload'], function () {
 
     Route::post('/saverichtext', [UploadController::class, 'saverichtext'])->name('upload.saverichtext');
 
-    Route::get('visualizar/{documento}', [UploadController::class, 'visualizar'])->name('upload.visualizar');
-
     Route::get('/buscar', [UploadController::class, 'buscar'])->name('upload.buscar');
+    
+    Route::get('visualizar/{documento}', [UploadController::class, 'visualizar'])->name('upload.visualizar');
 
     Route::get('/editar/{documento}', [UploadController::class, 'editar'])->name('upload.editar');
 
