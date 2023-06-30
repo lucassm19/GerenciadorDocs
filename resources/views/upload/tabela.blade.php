@@ -4,6 +4,24 @@
 
 @section('content')
 
+<form action="{{ route('upload.buscar') }}" method="GET" class="mb-4">
+    <div class="flex items-center">
+        <input type="text" name="termo" placeholder="Digite o termo de busca" class="w-96 px-2 py-1 border border-gray-300 rounded-l">
+        <div class="ml-2">
+            <select name="filtro" class="px-2 py-1 border border-gray-300 rounded">
+                <option value="nome_arquivo">Nome do Arquivo</option>
+                <option value="tipo">Tipo</option>
+                <option value="nome_usuario">Nome do Usuário</option>
+                <option value="data_upload">Data de Upload</option>
+            </select>
+        </div>
+        <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Buscar</button>
+    </div>
+</form>
+
+<br>
+<br>
+
 <h2 class="text-lg font-bold mb-4 text-center">PDF, DOC e DOCX</h2>
 
 <table class="min-w-full divide-y divide-gray-200">

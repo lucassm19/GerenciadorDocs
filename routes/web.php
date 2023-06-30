@@ -53,6 +53,8 @@ Route::group(['prefix' => '/upload'], function () {
 
     Route::get('visualizar/{documento}', [UploadController::class, 'visualizar'])->name('upload.visualizar');
 
+    Route::get('/buscar', [UploadController::class, 'buscar'])->name('upload.buscar');
+
     Route::get('/editar/{documento}', [UploadController::class, 'editar'])->name('upload.editar');
 
     Route::put('/editar/{documento}', [UploadController::class, 'editarGravar'])->name('upload.editarGravar');

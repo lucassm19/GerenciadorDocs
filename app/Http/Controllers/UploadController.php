@@ -154,4 +154,20 @@ class UploadController extends Controller
 
         return view('upload.apagar', ['documentoFixo' => $documentoFixo]);
     }
+
+    public function buscar(Request $request)
+    {
+        $filtro = $request->input('filtro');
+        $termo = $request->input('termo');
+
+        if ($filtro === 'data_upload') {
+            $documentos = Documento::whereDate('created_at', $termo)->get();
+            $documentosFixos = DocumentoFixo::whereDate('created_at', $termo)->get();
+        } else {
+            $documentos = Documento::where($filtro, 'like', '%' . $termo . '%')->get();
+            $documentosFixos = DocumentoFixo::where($filtro, 'like', '%' . $termo . '%')->get();
+        }
+
+        return view('upload.tabela', compact('documentos', 'documentosFixos'));
+    }
 }
